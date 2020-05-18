@@ -75,11 +75,10 @@ def upload():
         img_bytes = file.read()
         # Return predicted class_name
         class_name = get_prediction(image_bytes=img_bytes)
-        # # Using predicted class_name to query database
-        # car = car_collection.find_one({'name': class_name})
-        # # Return result as JSON to user
-        # return jsonify(JSONEncoder().encode(car))
-        return class_name
+        # Using predicted class_name to query database
+        car = car_collection.find_one({'name': class_name})
+        # Return result as JSON to user
+        return jsonify(JSONEncoder().encode(car))
     return None
 
 

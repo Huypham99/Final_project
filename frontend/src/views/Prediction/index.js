@@ -21,8 +21,7 @@ function Prediction(props) {
 
         axios.post(`/predict`, formData)
             .then(res => {
-                //setCar(JSON.parse(res.data))
-                setPrediction(res.data)
+                setCar(JSON.parse(res.data))
             })
     }
 
@@ -48,7 +47,7 @@ function Prediction(props) {
                     <Button variant="primary" onClick={uploadImage} disabled={!file} style={{ marginTop: '10px' }}>Tìm kiếm</Button>
                 </Col>
                 <Col lg="6">
-                    <h4>Sản phẩm có thể bạn quan tâm: {prediction}</h4>
+                    <h4>Sản phẩm có thể bạn quan tâm:</h4>
                     {car && <Col><ProductCard name={car.name} price={car.price} imgId={car.imageId} /></Col>}
                 </Col>
             </Row>
