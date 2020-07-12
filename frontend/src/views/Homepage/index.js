@@ -14,8 +14,7 @@ function Homepage(props) {
     useEffect(() => {
         axios.get(`/cars`)
             .then(res => {
-                console.log(JSON.parse(res.data))
-                setCars(JSON.parse(res.data))
+                setCars(res.data)
             })
     }, []);
 
